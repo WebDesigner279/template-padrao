@@ -1,5 +1,7 @@
 node_modules
 .next
+dist
+*.log
 Dockerfile
 Dockerfile.dev
 docker-compose.yml

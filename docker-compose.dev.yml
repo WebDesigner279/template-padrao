@@ -1,5 +1,8 @@
+version: '3.8'
+
 services:
-  app-dev:
+  app:
+    container_name: template-dev
     build:
       context: .
       dockerfile: Dockerfile.dev
@@ -11,13 +14,3 @@ services:
     environment:
       - NODE_ENV=development
     command: npm run dev
-
-  app-prod:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - '3001:3000'
-    environment:
-      - NODE_ENV=production
-    command: npm run start

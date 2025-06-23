@@ -1,6 +1,5 @@
-
-# 🌐 Estrutura Base - Next.js + TypeScript
-> 🚀 Base moderna e escalável para aplicações web com Next.js 14+, SCSS e suporte PWA
+# 🌐 Estrutura Base - Next.js + TypeScript + Docker
+> 🚀 Base moderna, escalável e pronta para produção com Next.js 14+, SCSS, PWA, Docker e Docker Compose
 
 <p align="center">
   <img src="https://a.imagem.app/BKaHX1.png" alt="Banner Estrutura Base Next.js" style="max-width: 100%; height: auto;" />
@@ -11,6 +10,7 @@
 - [✨ Funcionalidades](#-funcionalidades)
 - [✅ Tecnologias Utilizadas](#-tecnologias-utilizadas)
 - [📁 Estrutura de Pastas](#-estrutura-de-pastas)
+- [🐳 Docker e Docker Compose](#-docker-e-docker-compose)
 - [🚀 Como Executar o Projeto](#-como-executar-o-projeto)
 - [⚙️ Scripts Disponíveis](#️-scripts-disponíveis)
 - [📦 Deploy](#-deploy)
@@ -20,38 +20,39 @@
 - [📄 Licença](#-licença)
 - [👨‍💻 Autor](#-autor)
 
+---
 
 ![Next.js](https://img.shields.io/badge/Next.js-14+-black?logo=nextdotjs)
 ![TypeScript](https://img.shields.io/badge/TypeScript-4.x-blue?logo=typescript)
 ![SCSS Modules](https://img.shields.io/badge/SCSS-Modules-pink?logo=sass)
+![Docker](https://img.shields.io/badge/Docker-Containers-blue?logo=docker)
 ![PWA Ready](https://img.shields.io/badge/PWA-Ready-green?logo=googlechrome)
-![Template ATI](https://img.shields.io/badge/Template-ATI-blueviolet?style=flat-square)
 ![MIT License](https://img.shields.io/badge/license-MIT-brightgreen)
 
-
-> 🧱 **Este repositório é um Template Padrão ATI — Academia Técnica Interna.**  
-> Use o botão `Use this template` no GitHub para iniciar seu projeto com esta estrutura base!
+---
 
 ## ✨ Funcionalidades
 
-- Estrutura otimizada com Next.js 14+
-- Suporte completo a PWA e instalação como app mobile
-- Componentes modulares com SCSS isolado
-- Layout responsivo pronto para produção
-- SEO configurado nativamente
-- Deploy fácil via Vercel
+- ✅ Next.js 14+ com suporte nativo a App Router
+- ✅ Suporte completo a PWA (offline, instalação mobile e desktop)
+- ✅ Componentização com SCSS Modules
+- ✅ SEO otimizado
+- ✅ Docker e Docker Compose configurados para desenvolvimento e produção
+- ✅ Deploy simples na Vercel ou qualquer plataforma compatível com Docker
+- ✅ Estrutura limpa, escalável e de fácil manutenção
 
-
-Este projeto é uma estrutura base para aplicações modernas em **Next.js** com **TypeScript**, **SCSS Modules**, suporte a **PWA (Progressive Web App)** e organização de componentes reutilizáveis. Ideal para desenvolvimento ágil, responsivo e escalável.
+---
 
 ## ✅ Tecnologias Utilizadas
 
-- [Next.js](https://nextjs.org/) 14+
-- [React](https://react.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [SCSS Modules](https://sass-lang.com/)
-- [PWA (Service Worker + Manifest)](https://web.dev/progressive-web-apps/)
-- [ESLint + Prettier](https://prettier.io/)
+- ⚙️ [Next.js 14+](https://nextjs.org/)
+- ⚛️ [React](https://react.dev/)
+- 📘 [TypeScript](https://www.typescriptlang.org/)
+- 🎨 [SCSS Modules](https://sass-lang.com/)
+- 🐳 [Docker](https://www.docker.com/)
+- 🐙 [Docker Compose](https://docs.docker.com/compose/)
+- 🔥 [PWA](https://web.dev/progressive-web-apps/)
+- 🛠️ [ESLint + Prettier](https://prettier.io/)
 
 ---
 
@@ -60,17 +61,24 @@ Este projeto é uma estrutura base para aplicações modernas em **Next.js** com
 ```bash
 estrutura-base-1/
 │
-├── .next/                                # Pasta gerada automaticamente (ignorada no Git)
-├── .vscode/                              # Configurações do VSCode (opcional)
+├── .dockerignore                        # Arquivos ignorados no build Docker
+├── docker-compose.dev.yml              # Compose para ambiente de desenvolvimento
+├── docker-compose.prod.yml             # Compose para ambiente de produção
+├── Dockerfile                          # Dockerfile para produção
+├── Dockerfile.dev                      # Dockerfile para desenvolvimento
+│
+├── .next/                              # Pasta gerada automaticamente (ignorada no Git)
+├── .vscode/                            # Configurações do VSCode (opcional)
+│
 ├── app/
-│   ├── components/                       # Componentes reutilizáveis
+│   ├── components/
 │   │   ├── Footer/
 │   │   │   ├── Footer.module.scss
 │   │   │   ├── Footer.tsx
 │   │   │   └── index.ts
 │   │   ├── InstallButton/
-│   │   │   ├── InstallButton.tsx
 │   │   │   ├── InstallButton.module.scss
+│   │   │   ├── InstallButton.tsx
 │   │   │   └── index.tsx
 │   │   ├── Navbar/
 │   │   │   ├── Navbar.module.scss
@@ -105,92 +113,109 @@ estrutura-base-1/
 ├── README.md
 ├── tsconfig.json
 └── .gitignore
-```
 
 ---
 
-## 🚀 Como Executar o Projeto
+🐳 Docker e Docker Compose
 
-### 1. Clonar o repositório
+🔧 Arquivos Docker
+Dockerfile.dev → Ambiente de desenvolvimento (hot reload)
 
-```bash
+Dockerfile → Build de produção otimizado
+
+.dockerignore → Evita subir arquivos desnecessários
+
+docker-compose.dev.yml → Orquestração local para desenvolvimento
+
+docker-compose.prod.yml → Orquestração local ou deploy em produção
+
+▶️ Executar com Docker
+Ambiente de Desenvolvimento:
+
+docker compose -f docker-compose.dev.yml up --build
+Acesse em: http://localhost:3000
+
+Ambiente de Produção (Local ou Deploy):
+
+docker compose -f docker-compose.prod.yml up --build
+
+🚀 Build Manual com Docker (Produção):
+docker build -t nextjs-app .
+
+docker run -d -p 3000:3000 nextjs-app
+🚀 Como Executar o Projeto (Sem Docker)
+
+1️⃣ Clone o projeto
 git clone https://github.com/seu-usuario/estrutura-base-1.git
 cd estrutura-base-1
-```
 
-### 2. Instalar as dependências
-
-```bash
+2️⃣ Instale as dependências
 npm install
 # ou
 yarn
-```
 
-### 3. Rodar o servidor de desenvolvimento
-
-```bash
+3️⃣ Rode em desenvolvimento
 npm run dev
 # ou
 yarn dev
-```
+Acesse: http://localhost:3000
 
-Acesse: [http://localhost:3000](http://localhost:3000)
+⚙️ Scripts Disponíveis
+Comando	Descrição
+dev	Inicia o ambiente de desenvolvimento
+build	Cria a build de produção
+start	Roda a build em ambiente de produção
+lint	Executa o ESLint
+format	Formata o código com Prettier
 
----
+📦 Deploy
+✅ Vercel (Recomendado)
+Projeto 100% compatível com deploy na Vercel
 
-## ⚙️ Scripts Disponíveis
+Detecta automaticamente Next.js, sem necessidade de configuração extra
 
-| Comando         | Descrição                            |
-|----------------|----------------------------------------|
-| `dev`          | Inicia o servidor de desenvolvimento   |
-| `build`        | Cria a build de produção               |
-| `start`        | Inicia a aplicação em produção         |
-| `lint`         | Verifica problemas de lint no código   |
-| `format`       | Formata o código com Prettier          |
+✅ Deploy via Docker
+Servidores como AWS, Railway, Render, GCP, DigitalOcean, Heroku, etc.
 
----
+Utilize docker-compose.prod.yml ou Dockerfile para ambientes de produção
 
-## 📦 Deploy
+📱 Suporte a PWA
+✅ manifest.json configurado
 
-Você pode fazer o deploy facilmente na [Vercel](https://vercel.com/) (recomendado). O projeto já está preparado para isso.
+✅ sw.js e workbox operando
 
----
+✅ Permite instalação como app mobile e desktop
 
-## 📱 Suporte a PWA
+✅ Funciona offline
 
-- Arquivo `manifest.json` já incluído.
-- Service Worker configurado para permitir instalação como app mobile.
-- Ideal para performance offline e experiência nativa em dispositivos móveis.
+✍️ Estilização
+🎨 SCSS Modules com escopo isolado por componente
 
----
+🎨 Arquivo global: app/styles/globals.scss
 
-## ✍️ Estilização
+💡 Boas Práticas
+🔥 Componentização limpa
 
-- Utiliza SCSS Modules em cada componente para escopo local e organização.
-- Estilo global em `app/styles/globals.scss`.
+🚀 SEO-ready
 
----
+📦 Deploy simplificado (Vercel ou Docker)
 
-## 💡 Boas Práticas
+🔧 ESLint + Prettier
 
-- Estrutura limpa e modular
-- Componentes reutilizáveis
-- SEO-friendly (Next.js)
-- Código formatado com Prettier e checado com ESLint
+🐳 Containers isolados para desenvolvimento e produção
 
----
+🔥 Arquivo .dockerignore otimizado para reduzir imagem Docker
 
-## 📄 Licença
+📄 Licença
+Este projeto está sob a licença MIT License.
 
-Este projeto está licenciado sob a [MIT License](LICENSE).
+👨‍💻 Autor
+Valter Vieira Gomes Junior
 
----
+💼 Desenvolvedor Front-End
 
-## 👨‍💻 Autor
+📧 valtervieira.dev@gmail.com
 
-**Valter Vieira Gomes Junior**
+🌐 portfolio-valter-dev.vercel.app
 
-- 💼 Desenvolvedor Front-End
-- 📧 valtervieira.dev@gmail.com
-- 🌐 [portfolio-valter-dev.vercel.app](https://portfolio-valter-dev.vercel.app)
-- 📱 WhatsApp: (11) 9 7756-7993
+📱 WhatsApp: (11) 9 7756-7993
