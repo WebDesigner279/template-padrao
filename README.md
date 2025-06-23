@@ -130,6 +130,8 @@ docker-compose.dev.yml → Orquestração local para desenvolvimento
 
 docker-compose.prod.yml → Orquestração local ou deploy em produção
 
+---
+
 ▶️ Executar com Docker
 Ambiente de Desenvolvimento:
 
