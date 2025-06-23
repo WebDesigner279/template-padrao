@@ -61,7 +61,7 @@
 ```bash
 estrutura-base-1/
 │
-├── .dockerignore                        # Arquivos ignorados no build Docker
+├── .dockerignore                       # Arquivos ignorados no build Docker
 ├── docker-compose.dev.yml              # Compose para ambiente de desenvolvimento
 ├── docker-compose.prod.yml             # Compose para ambiente de produção
 ├── Dockerfile                          # Dockerfile para produção
@@ -133,43 +133,73 @@ docker-compose.prod.yml → Orquestração local ou deploy em produção
 ▶️ Executar com Docker
 Ambiente de Desenvolvimento:
 
+```bash  
 docker compose -f docker-compose.dev.yml up --build
+```
 Acesse em: http://localhost:3000
+
+---
 
 Ambiente de Produção (Local ou Deploy):
 
+```bash
 docker compose -f docker-compose.prod.yml up --build
+```
+
+---
 
 🚀 Build Manual com Docker (Produção):
-docker build -t nextjs-app .
 
+```bash 
+docker build -t nextjs-app .
 docker run -d -p 3000:3000 nextjs-app
+```
+---
+
 🚀 Como Executar o Projeto (Sem Docker)
 
 1️⃣ Clone o projeto
+
+```bash
 git clone https://github.com/seu-usuario/estrutura-base-1.git
 cd estrutura-base-1
+```
+---
 
 2️⃣ Instale as dependências
+
+```bash
 npm install
 # ou
 yarn
+```
+---
 
 3️⃣ Rode em desenvolvimento
+
+```bash
 npm run dev
 # ou
 yarn dev
+```
 Acesse: http://localhost:3000
 
+---
+
 ⚙️ Scripts Disponíveis
-Comando	Descrição
-dev	Inicia o ambiente de desenvolvimento
-build	Cria a build de produção
-start	Roda a build em ambiente de produção
-lint	Executa o ESLint
-format	Formata o código com Prettier
+
+| Comando  | Descrição                            |
+| -------- | ------------------------------------ |
+| `dev`    | Inicia o ambiente de desenvolvimento |
+| `build`  | Cria a build de produção             |
+| `start`  | Roda a build em ambiente de produção |
+| `lint`   | Executa o ESLint                     |
+| `format` | Formata o código com Prettier        |
+
+---
 
 📦 Deploy
+
 ✅ Vercel (Recomendado)
 Projeto 100% compatível com deploy na Vercel
 
@@ -180,7 +210,10 @@ Servidores como AWS, Railway, Render, GCP, DigitalOcean, Heroku, etc.
 
 Utilize docker-compose.prod.yml ou Dockerfile para ambientes de produção
 
+---
+
 📱 Suporte a PWA
+
 ✅ manifest.json configurado
 
 ✅ sw.js e workbox operando
@@ -189,12 +222,18 @@ Utilize docker-compose.prod.yml ou Dockerfile para ambientes de produção
 
 ✅ Funciona offline
 
+---
+
 ✍️ Estilização
+
 🎨 SCSS Modules com escopo isolado por componente
 
 🎨 Arquivo global: app/styles/globals.scss
 
+---
+
 💡 Boas Práticas
+
 🔥 Componentização limpa
 
 🚀 SEO-ready
@@ -207,10 +246,16 @@ Utilize docker-compose.prod.yml ou Dockerfile para ambientes de produção
 
 🔥 Arquivo .dockerignore otimizado para reduzir imagem Docker
 
+---
+
 📄 Licença
+
 Este projeto está sob a licença MIT License.
 
+---
+
 👨‍💻 Autor
+
 Valter Vieira Gomes Junior
 
 💼 Desenvolvedor Front-End
