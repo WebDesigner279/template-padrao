@@ -1,4 +1,5 @@
 # 🌐 Estrutura Base - Next.js + TypeScript + Docker
+
 > 🚀 Base moderna, escalável e pronta para produção com Next.js 14+, SCSS, PWA, Docker e Docker Compose
 
 <p align="center">
@@ -135,9 +136,10 @@ docker-compose.prod.yml → Orquestração local ou deploy em produção
 ▶️ Executar com Docker
 Ambiente de Desenvolvimento:
 
-```bash  
+```bash
 docker compose -f docker-compose.dev.yml up --build
 ```
+
 Acesse em: http://localhost:3000
 
 ---
@@ -152,10 +154,11 @@ docker compose -f docker-compose.prod.yml up --build
 
 🚀 Build Manual com Docker (Produção):
 
-```bash 
+```bash
 docker build -t nextjs-app .
 docker run -d -p 3000:3000 nextjs-app
 ```
+
 ---
 
 🚀 Como Executar o Projeto (Sem Docker)
@@ -166,6 +169,7 @@ docker run -d -p 3000:3000 nextjs-app
 git clone https://github.com/seu-usuario/estrutura-base-1.git
 cd estrutura-base-1
 ```
+
 ---
 
 2️⃣ Instale as dependências
@@ -175,6 +179,7 @@ npm install
 # ou
 yarn
 ```
+
 ---
 
 3️⃣ Rode em desenvolvimento
@@ -184,6 +189,7 @@ npm run dev
 # ou
 yarn dev
 ```
+
 Acesse: http://localhost:3000
 
 ---
