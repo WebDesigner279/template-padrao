@@ -202,7 +202,7 @@ Acesse: http://localhost:3000
 | `build`  | Cria a build de produção             |
 | `start`  | Roda a build em ambiente de produção |
 | `lint`   | Executa o ESLint                     |
-| `format` | Formata o código com Prettier        |
+| `npm run format` | Formata o código com Prettier |
 
 ---
 
